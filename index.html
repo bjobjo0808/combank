@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- The above 2 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Note there is no responsive meta tag here -->
+
+<link rel="icon" href="../../favicon.ico">
+
+<title>COMBANK</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div class="">
+			<h1>
+				<span class="glyphicon glyphicon-console" aria-hidden="true"></span>COMBANK
+			</h1>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h2>
+					<span id="command"></span>
+				</h2>
+			</div>
+			<button class="copy" data-clipboard-target="#command">Copy on ClipBoard</button>
+		</div>
+
+		<h3>RECIPE</h3>
+		<div class="form-group">
+			<input type="text" class="form-control input-lg" id="recipe" placeholder="ex.git clone hogehohe">
+			<blockquote>
+				<p id="description"></p>
+			</blockquote>
+			<ul class="nav nav-tabs" id="tab-menu">
+				<li class="active"><a href="#input" data-toggle="tab">INPUT</a></li>
+				<li><a href="#recipe-list" data-toggle="tab">RECIPE</a></li>
+			</ul>
+			<div id="myTabContent" class="tab-content">
+				<div class="tab-pane fade in active" id="input">
+					<div class="form-group">
+						<label for="exampleInputtext1">@1</label> <input type="text" class="form-control input" id="input1">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputtext1">@2</label> <input type="text" class="form-control input" id="input2">
+					</div>
+					<div class="form-group">
+						<label for="exampleIntextail1">@3</label> <input type="text" class="form-control input" id="input3">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputtext1">@4</label> <input type="text" class="form-control input" id="input4">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputtext1">@5</label> <input type="text" class="form-control input" id="input5">
+					</div>
+				</div>
+				<div class="tab-pane fade" id="recipe-list">
+					<h4>git</h4>
+					<div class="list-group">
+						<button type="button" class="list-group-item action-select-recipe">git push origin --tag</button>
+						<button type="button" class="list-group-item action-select-recipe">git diff [@1] [@2]</button>
+						<button type="button" class="list-group-item action-select-recipe">git -b checkout [@1]</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /container -->
+
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
+	<script src="common.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{
+    "rows": [
+        {
+            "type": "title",
+            "name": "git"
+        }, 
+        {
+            "type": "recipe",
+            "name": "リセット(ハード)",
+            "command": "git reset --hard HEAD",
+            "description": "リセット(ハード)"
+        }, 
+        {
+            "type": "recipe",
+            "name": "ブランチにタグを打つ",
+            "command": "git tag -a '[@1]' -m '[@2]'",
+            "description": "ブランチにタグを打つ<br>@1:タグ名<br>@2:コメント"
+        }, 
+        {
+            "type": "recipe",
+            "name": "タグをブランチに反映する",
+            "command": "git push origin --tag",
+            "description": "タグをブランチに反映する"
+        }, 
+        {
+            "type": "recipe",
+            "name": "次回コミット時の差分を確認する",
+            "command": "git diff --cached",
+            "description": "次回コミット時の差分を確認する"
+        }, 
+        {
+            "type": "recipe",
+            "name": "コミット間の差分を取る",
+            "command": "git diff [@1] [@2]",
+            "description": "コミット間の差分を取る<br>@1:比較対象コミットID<br>@2:比較対象コミットID"
+        }, 
+        {
+            "type": "recipe",
+            "name": "コミット間の差分を取る(ファイル名のみ)",
+            "command": "git diff [@1] [@2] --name-only",
+            "description": ""
+        }, 
+        {
+            "type": "recipe",
+            "name": "チェックアウト",
+            "command": "git checkout -b [@1]",
+            "description": "チェックアウト(ブランチなければ作る)"
+        },
+        {
+            "type": "title",
+            "name": "file"
+        }, 
+        {
+            "type": "recipe",
+            "name": "rsync -n [@1] [@2]",
+            "command": "rsync -n [@1] [@2]",
+            "description": ""
+        }
+    ]
+}

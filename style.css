@@ -1,0 +1,16 @@
+body {
+	color: #666;
+}
+.nav-tabs {
+	margin-top: 20px;
+}
+h1 {
+	font-size: 28px;
+}
+blockquote {
+	font-size: 90%;
+	margin-top: 20px;
+}
+.copy {
+	width: 100%;
+}
