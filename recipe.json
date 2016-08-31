@@ -6,6 +6,12 @@
         }, 
         {
             "type": "recipe",
+            "name": "コミット",
+            "command": "git commit -v",
+            "description": "コミット"
+        }, 
+        {
+            "type": "recipe",
             "name": "リセット(ハード)",
             "command": "git reset --hard HEAD",
             "description": "リセット(ハード)"
@@ -30,15 +36,21 @@
         }, 
         {
             "type": "recipe",
-            "name": "コミット間の差分を取る",
+            "name": "コミットID間の差分を取る",
             "command": "git diff [@1] [@2]",
             "description": "コミット間の差分を取る<br>@1:比較対象コミットID<br>@2:比較対象コミットID"
         }, 
         {
             "type": "recipe",
-            "name": "コミット間の差分を取る(ファイル名のみ)",
+            "name": "コミットID間の差分を取る(ファイル名のみ)",
             "command": "git diff [@1] [@2] --name-only",
             "description": ""
+        }, 
+        {
+            "type": "recipe",
+            "name": "タグ間の差分を取る",
+            "command": "git diff --diff-filter=AMCRD [@1] [@2]",
+            "description": "タグ間の差分を取る<br>@1:比較対象コミットID<br>@2:比較対象コミットID"
         }, 
         {
             "type": "recipe",

@@ -3,13 +3,18 @@ $(function() {
 	$.support.transition = false;
 	// クリップボード
 	var clipboard = new Clipboard('.copy');
-	
+	clipboard.on('success', function(e) {
+		e.clearSelection();
+		$('#tab-recipe').tab('show');
+		$().alert('close');
+	});
+
 	recipeList = [];
 	$("#recipe-list").on("click", "button", function(event) {
 		var row = recipeList[$(this).data("index")];
 		$("#recipe").val(row.command);
 		$("#description").html(row.description);
-		$('#tab-menu a:first').tab('show');
+		$('#tab-input').tab('show');
 		$('#recipe').focus();
 		$(".input").val("");
 		changeCommand();
@@ -23,11 +28,11 @@ $(function() {
 
 	function changeCommand() {
 		var command = $("#recipe").val();
-		command = command.replace("[@1]", $("#input1").val() ? $("#input1").val() : "@1" );
-		command = command.replace("[@2]", $("#input2").val() ? $("#input2").val() : "@2" );
-		command = command.replace("[@3]", $("#input3").val() ? $("#input3").val() : "@3" );
-		command = command.replace("[@4]", $("#input4").val() ? $("#input4").val() : "@4" );
-		command = command.replace("[@5]", $("#input5").val() ? $("#input5").val() : "@5" );
+		command = command.replace("[@1]", $("#input1").val() ? $("#input1").val() : "@1");
+		command = command.replace("[@2]", $("#input2").val() ? $("#input2").val() : "@2");
+		command = command.replace("[@3]", $("#input3").val() ? $("#input3").val() : "@3");
+		command = command.replace("[@4]", $("#input4").val() ? $("#input4").val() : "@4");
+		command = command.replace("[@5]", $("#input5").val() ? $("#input5").val() : "@5");
 		$("#command").html(command);
 	}
 
