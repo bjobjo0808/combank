@@ -10,7 +10,7 @@ $(function() {
 		$(".alert").show();
 		setTimeout( function() {
 			$(".alert").slideUp();
-		}, 500 );
+		}, 300 );
 	});
 
 	recipeList = [];
