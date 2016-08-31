@@ -1,7 +1,6 @@
 $(function() {
 	var recipe;
 	$(".form-input").hide();
-	$(".alert").hide();
 	
 	// アニメーション禁止
 	$.support.transition = false;
@@ -10,11 +9,6 @@ $(function() {
 	clipboard.on('success', function(e) {
 		e.clearSelection();
 		$('#tab-recipe').tab('show');
-		$().alert('close');
-		$(".alert").show();
-		setTimeout( function() {
-			$(".alert").slideUp();
-		}, 300 );
 	});
 
 	recipeList = [];
