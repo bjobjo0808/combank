@@ -7,6 +7,10 @@ $(function() {
 		e.clearSelection();
 		$('#tab-recipe').tab('show');
 		$().alert('close');
+		$(".alert").show();
+		setTimeout( function() {
+			$(".alert").slideUp();
+		}, 500 );
 	});
 
 	recipeList = [];
