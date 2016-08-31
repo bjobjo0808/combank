@@ -1,4 +1,8 @@
 $(function() {
+	var recipe;
+	$(".form-input").hide();
+	$(".alert").hide();
+	
 	// アニメーション禁止
 	$.support.transition = false;
 	// クリップボード
@@ -15,10 +19,31 @@ $(function() {
 
 	recipeList = [];
 	$("#recipe-list").on("click", "button", function(event) {
-		var row = recipeList[$(this).data("index")];
-		$("#recipe").val(row.command);
-		$("#description").html(row.description);
-		$('#tab-input').tab('show');
+		recipe = recipeList[$(this).data("index")];
+		$("#recipe").val(recipe.command);
+		$("#description").html(recipe.description);
+		$(".form-input").hide();
+		if (recipe.input1 != null) {
+			$("#form1").show();
+			$("#desc-input1").html(recipe.input1);
+		}
+		if (recipe.input2 != null) {
+			$("#form2").show();
+			$("#desc-input2").html(recipe.input2);
+		}
+		if (recipe.input3 != null) {
+			$("#form3").show();
+			$("#desc-input3").html(recipe.input3);
+		}
+		if (recipe.input4 != null) {
+			$("#form4").show();
+			$("#desc-input4").html(recipe.input4);
+		}
+		if (recipe.input5 != null) {
+			$("#form5").show();
+			$("#desc-input5").html(recipe.input5);
+		}
+		
 		$('#recipe').focus();
 		$(".input").val("");
 		changeCommand();
@@ -32,11 +57,11 @@ $(function() {
 
 	function changeCommand() {
 		var command = $("#recipe").val();
-		command = command.replace("[@1]", $("#input1").val() ? $("#input1").val() : "@1");
-		command = command.replace("[@2]", $("#input2").val() ? $("#input2").val() : "@2");
-		command = command.replace("[@3]", $("#input3").val() ? $("#input3").val() : "@3");
-		command = command.replace("[@4]", $("#input4").val() ? $("#input4").val() : "@4");
-		command = command.replace("[@5]", $("#input5").val() ? $("#input5").val() : "@5");
+		command = command.replace("[@1]", $("#input1").val() ? $("#input1").val() : recipe.input1);
+		command = command.replace("[@2]", $("#input2").val() ? $("#input2").val() : recipe.input2);
+		command = command.replace("[@3]", $("#input3").val() ? $("#input3").val() : recipe.input3);
+		command = command.replace("[@4]", $("#input4").val() ? $("#input4").val() : recipe.input4);
+		command = command.replace("[@5]", $("#input5").val() ? $("#input5").val() : recipe.input5);
 		$("#command").html(command);
 	}
 

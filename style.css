@@ -15,3 +15,15 @@ blockquote {
 	height: 30px;
 	width: 100%;
 }
+.alert {
+	margin: 0px;
+}
+.panel-form {
+	min-height: 320px;
+}
+.panel-command {
+	min-height: 100px;
+}
+#command {
+	font-size: 22px;
+}

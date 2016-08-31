@@ -12,6 +12,20 @@
         }, 
         {
             "type": "recipe",
+            "name": "プッシュ",
+            "command": "git push origin [@1]",
+            "description": "プッシュ",
+            "input1": "ブランチ名"
+        }, 
+        {
+            "type": "recipe",
+            "name": "チェックアウト",
+            "command": "git checkout -b [@1]",
+            "description": "チェックアウト(ブランチなければ作る)",
+            "input1": "ブランチ名"
+        },
+        {
+            "type": "recipe",
             "name": "リセット(ハード)",
             "command": "git reset --hard HEAD",
             "description": "リセット(ハード)"
@@ -20,7 +34,9 @@
             "type": "recipe",
             "name": "ブランチにタグを打つ",
             "command": "git tag -a '[@1]' -m '[@2]'",
-            "description": "ブランチにタグを打つ<br>@1:タグ名<br>@2:コメント"
+            "description": "ブランチにタグを打つ",
+            "input1": "タグ名",
+            "input2": "コメント"
         }, 
         {
             "type": "recipe",
@@ -38,26 +54,26 @@
             "type": "recipe",
             "name": "コミットID間の差分を取る",
             "command": "git diff [@1] [@2]",
-            "description": "コミット間の差分を取る<br>@1:比較対象コミットID<br>@2:比較対象コミットID"
+            "description": "コミット間の差分を取る",
+            "input1": "対象コミットID",
+            "input2": "対象コミットID"
         }, 
         {
             "type": "recipe",
             "name": "コミットID間の差分を取る(ファイル名のみ)",
             "command": "git diff [@1] [@2] --name-only",
-            "description": ""
+            "description": "コミットID間の差分を取る(ファイル名のみ)",
+            "input1": "対象コミットID",
+            "input2": "対象コミットID"
         }, 
         {
             "type": "recipe",
             "name": "タグ間の差分を取る",
             "command": "git diff --diff-filter=AMCRD [@1] [@2]",
-            "description": "タグ間の差分を取る<br>@1:比較対象コミットID<br>@2:比較対象コミットID"
+            "description": "タグ間の差分を取る",
+            "input1": "タグ名",
+            "input2": "タグ名"
         }, 
-        {
-            "type": "recipe",
-            "name": "チェックアウト",
-            "command": "git checkout -b [@1]",
-            "description": "チェックアウト(ブランチなければ作る)"
-        },
         {
             "type": "title",
             "name": "file"
