@@ -20,6 +20,9 @@ $(function() {
 		if (recipe.input1 != null) {
 			$("#form1").show();
 			$("#desc-input1").html(recipe.input1);
+			$('#input1').focus();
+		} else {
+			$('#recipe').focus();
 		}
 		if (recipe.input2 != null) {
 			$("#form2").show();
@@ -38,7 +41,6 @@ $(function() {
 			$("#desc-input5").html(recipe.input5);
 		}
 		
-		$('#recipe').focus();
 		$(".input").val("");
 		changeCommand();
 	});
