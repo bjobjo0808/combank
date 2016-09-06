@@ -1,0 +1,16 @@
+{
+    "name":"UNIX",
+    "rows": [
+        {
+            "type": "title",
+            "name": "基本操作"
+        },
+        {
+            "type": "recipe",
+            "name": "移動",
+            "command": "cd [@1]",
+            "description": "移動",
+            "input1": "移動先パス"
+        }
+    ]
+}

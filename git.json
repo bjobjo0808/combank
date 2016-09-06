@@ -1,8 +1,16 @@
 {
+    "name":"GIT",
     "rows": [
         {
             "type": "title",
             "name": "git"
+        }, 
+        {
+            "type": "recipe",
+            "name": "コミットの詳細を見る",
+            "command": "git show [@1]",
+            "description": "プッシュ",
+            "input1": "コミットID"
         }, 
         {
             "type": "recipe",
@@ -73,16 +81,6 @@
             "description": "タグ間の差分を取る",
             "input1": "タグ名",
             "input2": "タグ名"
-        }, 
-        {
-            "type": "title",
-            "name": "file"
-        }, 
-        {
-            "type": "recipe",
-            "name": "rsync -n [@1] [@2]",
-            "command": "rsync -n [@1] [@2]",
-            "description": ""
         }
     ]
 }

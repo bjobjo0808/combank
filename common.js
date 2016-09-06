@@ -1,7 +1,16 @@
 $(function() {
+	var read = [ "unix.json", "git.json" ];
+	var index = 0;
+	var isFirst = true;
+
 	var recipe;
+
+	// フォーム非表示
 	$(".form-input").hide();
-	
+	// 同期処理
+	$.ajaxSetup({
+		async : false
+	});
 	// アニメーション禁止
 	$.support.transition = false;
 	// クリップボード
@@ -12,8 +21,8 @@ $(function() {
 	});
 
 	recipeList = [];
-	$("#recipe-list").on("click", "button", function(event) {
-		recipe = recipeList[$(this).data("index")];
+	$(myTabContent).on("click", "button", function(event) {
+		recipe = recipeList[$(this).data("index")][$(this).data("row")];
 		$("#recipe").val(recipe.command);
 		$("#description").html(recipe.description);
 		$(".form-input").hide();
@@ -40,8 +49,9 @@ $(function() {
 			$("#form5").show();
 			$("#desc-input5").html(recipe.input5);
 		}
-		
+
 		$(".input").val("");
+		$('html,body').animate({ scrollTop: 55 }, 'fast');
 		changeCommand();
 	});
 	$("body").on("keypress", "input", function(event) {
@@ -60,31 +70,43 @@ $(function() {
 		command = command.replace("[@5]", $("#input5").val() ? $("#input5").val() : recipe.input5);
 		$("#command").html(command);
 	}
+	$.each(read, function(i, val) {
+		$.getJSON(val, null, // 送信データ
+		function(data, status) {
 
-	$.getJSON("recipe.json", null, // 送信データ
-	function(data, status) {
-		$("#recipe-list").html("");
-		recipeList = data.rows;
-		var isTitle = true;
-		var i = 0;
-		$(data.rows).each(function() {
-			if (this.type == "title") {
-				if (!isTitle) {
-					$("</div>").appendTo('#recipe-list');
-				}
-				$("<h4>" + this.name + "</h4>").appendTo('#recipe-list');
-				isTitle = true;
+			var tabName = "tab-" + data.name;
+			var tabListName = "recipe-tab-" + data.name;
+			if (isFirst) {
+				$("<li class=\"active\"><a id=\"" + tabName + "\" href=\"#" + tabListName + "\" data-toggle=\"tab\">" + data.name + "</a></li>").appendTo('#tab-menu');
+				$("<div class=\"tab-pane fade in active\" id=\"" + tabListName + "\"></div>").appendTo('#myTabContent');
+				isFirst = false;
 			} else {
-				if (isTitle) {
-					$("<div class=\"list-group\">").appendTo('#recipe-list');
-				}
-				$("<button type=\"button\" data-index=\"" + i + "\" class=\"list-group-item action-select-recipe\">" + this.name + "</button>").appendTo('#recipe-list');
-				isTitle = false;
+				$("<li><a id=\"" + tabName + "\" href=\"#" + tabListName + "\" data-toggle=\"tab\">" + data.name + "</a></li>").appendTo('#tab-menu');
+				$("<div class=\"tab-pane\" id=\"" + tabListName + "\"></div>").appendTo('#myTabContent');
 			}
-			i++;
-		})
-		if (!isTitle) {
-			$("</div>").appendTo('#recipe-list');
-		}
+
+			recipeList[data.name] = data.rows;
+			var isTitle = true;
+			var i = 0;
+			$(data.rows).each(function() {
+				if (this.type == "title") {
+					if (!isTitle) {
+						$("</div>").appendTo('#' + tabListName);
+					}
+					$("<h4>" + this.name + "</h4>").appendTo('#' + tabListName);
+					isTitle = true;
+				} else {
+					if (isTitle) {
+						$("<div class=\"list-group\">").appendTo('#' + tabListName);
+					}
+					$("<button type=\"button\" data-index=\"" + data.name + "\" data-row=\"" + i + "\" class=\"list-group-item action-select-recipe\">" + this.name + "</button>").appendTo('#' + tabListName);
+					isTitle = false;
+				}
+				i++;
+			})
+			if (!isTitle) {
+				$("</div>").appendTo('#' + tabListName);
+			}
+		});
 	});
 });
