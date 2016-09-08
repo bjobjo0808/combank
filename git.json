@@ -3,7 +3,7 @@
     "rows": [
         {
             "type": "title",
-            "name": "git"
+            "name": "show"
         }, 
         {
             "type": "recipe",
@@ -13,10 +13,59 @@
             "input1": "コミットID"
         }, 
         {
+            "type": "title",
+            "name": "log"
+        }, 
+        {
+            "type": "recipe",
+            "name": "ログの一覧",
+            "command": "git log --oneline",
+            "description": "ログの一覧"
+        }, 
+        {
+            "type": "recipe",
+            "name": "ログの一覧文字列検索",
+            "command": "git log --oneline --grep='[@1]'",
+            "description": "ログの一覧文字列検索",
+            "input1": "文字列"
+        }, 
+        {
+            "type": "title",
+            "name": "stash"
+        }, 
+        {
+            "type": "recipe",
+            "name": "一覧",
+            "command": "git stash list",
+            "description": "stash一覧"
+        }, 
+        {
+            "type": "recipe",
+            "name": "退避",
+            "command": "git stash save [@1]",
+            "description": "stash退避",
+            "input1": "コメント"
+        }, 
+        {
+            "type": "recipe",
+            "name": "戻し",
+            "command": "git stash pop stash@{[@1]}",
+            "description": "stash戻し",
+            "input1": "番号"
+        }, 
+        {
+            "type": "title",
+            "name": "commit"
+        }, 
+        {
             "type": "recipe",
             "name": "コミット",
             "command": "git commit -v",
             "description": "コミット"
+        }, 
+        {
+            "type": "title",
+            "name": "push"
         }, 
         {
             "type": "recipe",
@@ -26,6 +75,10 @@
             "input1": "ブランチ名"
         }, 
         {
+            "type": "title",
+            "name": "checkout"
+        }, 
+        {
             "type": "recipe",
             "name": "チェックアウト",
             "command": "git checkout -b [@1]",
@@ -33,10 +86,18 @@
             "input1": "ブランチ名"
         },
         {
+            "type": "title",
+            "name": "reset"
+        }, 
+        {
             "type": "recipe",
             "name": "リセット(ハード)",
             "command": "git reset --hard HEAD",
             "description": "リセット(ハード)"
+        }, 
+        {
+            "type": "title",
+            "name": "tag"
         }, 
         {
             "type": "recipe",
@@ -51,6 +112,10 @@
             "name": "タグをブランチに反映する",
             "command": "git push origin --tag",
             "description": "タグをブランチに反映する"
+        }, 
+        {
+            "type": "title",
+            "name": "diff"
         }, 
         {
             "type": "recipe",

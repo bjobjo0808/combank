@@ -1,5 +1,5 @@
 $(function() {
-	var read = [ "unix.json", "git.json" ];
+	var read = [ "git.json","unix.json",  ];
 	var index = 0;
 	var isFirst = true;
 
